@@ -1,11 +1,14 @@
+var startButton = document.getElementById('start-button')
+
 // start quiz 
 // start timer
 // event listener when the button is clicked
-addEventListener("click", startQuiz);
+startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
     // hide start screen
-    
+    var startScreen = document.getElementById('start-screen');
+    startScreen.setAttribute('class', 'hide'); 
     // start time
 
     // display questions

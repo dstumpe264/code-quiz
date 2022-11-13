@@ -14,6 +14,9 @@ h3{
 .end{
 
 }
+.hide{
+    display: none;
+}
 #start-screen{
     text-align: center;
     background: orangered;
