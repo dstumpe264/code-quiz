@@ -43,8 +43,22 @@ function getQuestion(){
     });
 }
 // determine right or wrong and return response
+function submitAnswer(event){
+    var button = event.target;
+
+
+    if(button.value !== questions[0].answer){
+        // wrong
+        console.log('wrong');
+    } else {
+        // right
+        console.log('right');
+    }
+}
 // next question
 // display final score
 // ask for initials
 // display topscores
 // ask to play again
+
+choices.onclick = submitAnswer;
