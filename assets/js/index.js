@@ -27,6 +27,7 @@ function startQuiz() {
 function getQuestion(){
     // display questions and answers
     // submit button
+    
     var currentQuestion = questions[questionIndex];
   
     var questionTitle = document.getElementById("title");
@@ -66,7 +67,12 @@ function submitAnswer(event){
     // next question
     questionIndex++;
 
-    getQuestion();
+    // validate more questions
+    if(questionIndex === questions.length){
+        throw console.error("Game Over");;
+    } else {
+        getQuestion();
+    }
 }
 
 // display final score
