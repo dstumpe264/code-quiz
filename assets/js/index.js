@@ -13,9 +13,7 @@ var feedBack = document.getElementById('feedback');
 // start quiz 
 // start timer
 // event listener when the button is clicked
-console.log(questions);
-console.log(questions.length);
-console.log(time);
+
 function startQuiz() {
     // hide start screen
     var startScreen = document.getElementById('start-screen');
@@ -60,11 +58,19 @@ function submitAnswer(event){
     
     if(button.value !== questions[0].answer){
         // wrong
-        console.log('wrong');
+        time -= 15;
+
+        if(time < 0 ){
+            time = 0;
+        }
+        // new time
+        timerEl.textContent = time;
+        
         feedBack.innerHTML = "HA WRONG!";
+
     } else {
         // right
-        console.log('right');
+        
         feedBack.innerHTML = "Right-o";
     }
     
@@ -74,8 +80,8 @@ function submitAnswer(event){
     // next question
     questionIndex++;
     
-    // validate more questions
-    if(questionIndex === questions.length){
+    // validate more questions and check time
+    if(time <= 0 || questionIndex === questions.length){
         endQuiz();
     } else {
         getQuestion();
@@ -92,6 +98,7 @@ function countdown(){
 }
 
 function endQuiz(){
+    clearInterval(timerId);
     questionsDiv.setAttribute('class', 'hide');
 }
 
