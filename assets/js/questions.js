@@ -1,28 +1,28 @@
 // array of question objects
 var questions = [
     {
-        title: "title",
-        choices: ['a', 'b', 'c', 'd'],
-        answer: 'a',
+        title: "Which is not a data type in JavaScript",
+        choices: ['integer', 'string', 'boolean', 'number'],
+        answer: 'integer',
     },
     {
-        title: "title",
-        choices: ['a', 'b', 'c', 'd'],
-        answer: 'a',
+        title: "How do you iterate through an array?",
+        choices: ['switch case', 'conditional statement', 'loops', 'array?'],
+        answer: 'loops',
     },
     {
-        title: "title",
-        choices: ['a', 'b', 'c', 'd'],
-        answer: 'a',
+        title: "What is the keyword to declare a variable in JS?",
+        choices: ['class', 'var', 'declare', 'by datatype'],
+        answer: 'var',
     },
     {
-        title: "title",
-        choices: ['a', 'b', 'c', 'd'],
-        answer: 'a',
+        title: "How many values can be stored in an array?",
+        choices: ['1', '10', 'depends', 'infinite'],
+        answer: 'depends',
     },
     {
-        title: "title",
-        choices: ['a', 'b', 'c', 'd'],
-        answer: 'a',
+        title: "What symbol groups together a code block or statements?",
+        choices: ['quotes', 'back tick', 'parantheses', 'curly brackets'],
+        answer: 'curly brackets',
     },
 ];

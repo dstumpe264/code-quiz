@@ -9,6 +9,8 @@ var timerEl = document.getElementById('time');
 var choices = document.getElementById('choices');
 var submitButton = document.getElementById('submit-button');
 var feedBack = document.getElementById('feedback');
+var finalScore = document.getElementById('final-score');
+var initialsEl = document.getElementById('initials');
 
 // start quiz 
 // start timer
@@ -56,7 +58,7 @@ function submitAnswer(event){
     var button = event.target;
     
     
-    if(button.value !== questions[0].answer){
+    if(button.value !== questions[questionIndex].answer){
         // wrong
         time -= 15;
 
@@ -98,8 +100,38 @@ function countdown(){
 }
 
 function endQuiz(){
+
     clearInterval(timerId);
+    document.getElementById('end-screen').removeAttribute('class');
     questionsDiv.setAttribute('class', 'hide');
+    feedBack.setAttribute('class', 'hide');
+    timerEl.setAttribute('class', 'hide');
+    finalScore.innerHTML = time;
+
+}
+
+function saveScore(){
+    var initials = initialsEl.value.trim();
+
+      // make sure value wasn't empty
+  if (initials !== '') {
+    // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+      JSON.parse(window.localStorage.getItem('scores')) || [];
+
+    // format new score object for current user
+    var newScore = {
+      score: time,
+      initials: initials,
+    };
+
+    // save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem('scores', JSON.stringify(highscores));
+
+    // redirect to next page
+    window.location.href = 'scores.html';
+  }
 }
 
 // display final score
